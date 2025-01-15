@@ -44,16 +44,17 @@ int main()
         cout << "Derivative: " + tab +"X = " << derivative[0] << tab + "Y = " << derivative[1] << tab + "Z = " << derivative[2] << "\n";
     }
 
-    cout << "Circles: \n";
+    double radiusSum = 0;
     vector<shared_ptr<Circle>> circles;
     for(const auto &curve : curves)
     {
         if(auto circle = dynamic_pointer_cast<Circle>(curve))
         {
             circles.push_back(circle);
-            cout << "radius: " << circle->getRadius() << " \n";
+            radiusSum += circle->getRadius();
         }
     }
+    std::cout << "Radius sum: " << radiusSum << std::endl;
     
     sort(circles.begin(), circles.end(),
         [](const shared_ptr<Circle> &a, const shared_ptr<Circle>b)
@@ -61,18 +62,5 @@ int main()
             return a->getRadius() < b->getRadius();
         });
 
-    cout << "Sort circles: \n";
-    for(const auto &circle : circles)
-    {
-        cout << "radius: " << circle->getRadius() << " \n";
-    }
-
-    double radiusSum = 0;
-    for(const auto &circle : circles) 
-    {
-        radiusSum += circle->getRadius();
-    }
-    std::cout << "Radius sum: " << radiusSum << std::endl;
-    
     return 0;
 }
