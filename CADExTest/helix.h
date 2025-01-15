@@ -10,5 +10,4 @@ public:
     Helix(double radius, double step);
     vector<double> getPoint(double t) const override;
     vector<double> getDerivative(double t) const override;
-
 };
