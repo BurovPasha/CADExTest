@@ -14,3 +14,8 @@ vector<double> Circle::getDerivative(double t) const
 {
     return {-m_radius * sin(t), m_radius * cos(t), 0.0};
 }
+
+double Circle::getRadius()
+{
+    return m_radius;
+}
